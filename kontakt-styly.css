@@ -1,0 +1,385 @@
+:root {
+  --zelena: #4ade80;
+  --cervena: #ff6b6b;
+}
+
+.kontakt-bg {
+    margin: 0;
+    padding: 0;
+    scroll-behavior: smooth;
+    font-family: "Questrial", sans-serif;
+    color: white;
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+
+    background-color: #2b3b56;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-items: center; 
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.4);
+}
+
+.horni-lista {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  margin: 0;
+  text-align: center;
+  z-index: 3000;
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+#menu {
+  display: flex;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.5s ease;
+}
+
+#logo-svg.visible {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+
+.nav-odkaz-domu {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 999px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  font-family: sans-serif;
+  margin: 5px 22px 5px;
+  transition: 0.3s background-color, 0.3s color;
+}
+.nav-odkaz-domu:hover {
+  background-color: white;
+  color: #000;
+}
+
+.produkt,
+.team {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  font-family: sans-serif;
+  margin: 5px 22px 5px;
+  transition:
+    0.3s background-color,
+    0.3s color;
+}
+
+.produkt.active,
+.team.active {
+  background-color: white;
+  color: #000;
+}
+
+.produkt:hover {
+  background-color: white;
+  color: #000;
+}
+
+.navbar {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 56px;
+  padding: 0 16px;
+  display: none;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 3001;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+  }
+}
+
+.hamburger {
+  width: 38px;
+  height: 27px;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(14.5px);
+}
+
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-15.5px);
+}
+
+.mobilni-menu {
+  display: flex;
+  position: fixed;
+  right: 10px;
+  top: 48px;
+  padding: 15px 30px 15px 0;
+  transform: translateX(110%);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  opacity: 0;
+  pointer-events: none;
+
+  transition: transform 0.2s ease-in-out, opacity 0.15s ease-in-out;
+  z-index: 3000;
+}
+
+.mobilni-menu ul {
+  list-style: none;
+}
+
+.mobilni-menu.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid white;
+  padding: 6px 20px;
+  border-radius: 999px;
+  width: fit-content;
+  display: block;
+  margin: 6px auto;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Questrial", sans-serif;
+  transition:
+    0.3s background-color,
+    0.3s color;
+}
+
+.mobile-nav a:hover {
+  background-color: white;
+  color: #000;
+}
+
+.nav-active {
+  background-color: white;
+  color: #000000 !important;
+}
+
+@media (max-width: 768px) {
+  .navbar {
+    display: flex;
+  }
+  #menu {
+    display: none;
+  }
+
+  .box-team {
+    width: 320px;
+    flex-direction: column;
+    height: auto;
+  }
+
+  .foto-sekce,
+  .obsah-sekce {
+    width: 100%;
+  }
+  .foto-sekce {
+    height: 300px;
+  }
+
+  .nadpis {
+    font-size: 45px;
+  }
+  .logo {
+    width: 45px;
+  }
+}
+
+footer {
+  margin-top: 50px;
+  color: white;
+  font-family: "Questrial", sans-serif;
+  height: 15vh;
+  text-align: center;
+  padding: 10px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+.ohraniceni {
+  border-top: 2px white solid;
+  opacity: 0.7;
+}
+
+
+
+.kontakt-bg {
+  background-color: #2b3b56 !important;
+}
+
+.formular-main {
+  min-height: 80dvh;
+  width: 100%;
+  margin: 80px 0 0;
+  padding: 0;
+  background-color: #2b3b56 !important;
+}
+
+.formular-nadpis {
+  font-size: 2rem;
+  color: #ffffff;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.formular-podnadpis {
+  font-size: 1.1rem;
+  margin: 20px auto 25px;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.formular-form {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  padding: 30px 20px 25px;
+}
+
+.formular-groups-around-div {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 25px;
+  justify-items: center;
+}
+
+/*   POLE JMÉNO  */
+
+.formular-jmeno {
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+}
+
+.formular-jmeno-input {
+  width: 100%;
+  outline: none;
+  padding: 10px 30px 10px 10px;
+  border: 2px solid rgba(253, 249, 249, 0.25);
+  border-radius: 10px;
+  background-color: transparent;
+
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+
+  box-sizing: border-box;
+  box-shadow: 0 0 0 rgba(74, 222, 128, 0.2);
+
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.formular-jmeno-label {
+  position: absolute;
+  left: 8px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #ffffff;
+  font-size: 1rem;
+  pointer-events: none;
+  border-radius: 5px;
+  
+  padding: 2px 4px;
+  background-color: #3c4b64;
+
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out, font-size 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+.formular-jmeno-input:focus ~ .formular-jmeno-label,
+.formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label {
+  top: 0;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%);
+}
+
+.formular-jmeno-input:focus {
+  border-color: #66a1f3;
+}
+
+.formular-jmeno.valid .formular-jmeno-input:not(:placeholder-shown) {
+  border-color: var(--zelena);
+}
+.formular-jmeno.valid  .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label{
+  color: var(--zelena);
+}
+.formular-jmeno.valid .formular-jmeno-input:not(:placeholder-shown):focus {
+  box-shadow: 0 3px 12px rgba(74, 222, 128, 0.2);
+}
+
+.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown) {
+  border-color: var(--cervena);
+}
+.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label {
+  color: var(--cervena);
+}
+.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown):focus {
+  box-shadow: 0 3px 12px rgba(255, 107, 107, 0.25);
+}
+.formular-jmeno-input:-webkit-autofill {
+  border-color: var(--zelena);
+  box-shadow: inset 0 0 0 100px rgba(74, 222, 128, 0.2);
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 9999s ease-in-out 0s;
+}
+.formular-jmeno-input:-webkit-autofill:focus {
+  border-color: var(--zelena);
+  box-shadow: 0 3px 12px rgba(74, 222, 128, 0.2), inset 0 0 0 100px transparent;
+  -webkit-text-fill-color: #ffffff;
+  transition: background-color 9999s ease-in-out 0s;
+}
+.formular-jmeno-input:-webkit-autofill ~ .formular-jmeno-label, 
+.formular-jmeno-input:-webkit-autofill:focus ~ .formular-jmeno-label {
+  color: var(--zelena);
+}
