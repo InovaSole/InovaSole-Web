@@ -1,0 +1,949 @@
+﻿/* ZÁKLADNÍ NASTAVENÍ A POZADÍ */
+body,
+#bg {
+  margin: 0;
+  min-height: 100vh;
+  background: linear-gradient(95deg, #1c2541, #3a506b);
+  transition: background 0.2s;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body, html {
+  scroll-behavior: smooth;
+  max-width: 100%;
+  overflow-x: clip;
+  margin: 0;
+  padding: 0;
+}
+
+/* NAVIGACE A MENU */
+.logo {
+  width: 60px;
+  height: auto;
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1000;
+}
+
+.home-link {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1001;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  border-radius: 16px;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.nav-odkaz-domu {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 999px;
+  transition: background-color 0.3s, color 0.3s;
+  cursor: pointer;
+  font-family: sans-serif;
+  margin: 5px 20px 5px;
+  transition: 0.3s background-color, 0.3s color;
+}
+.nav-odkaz-domu:hover {
+  background-color: white;
+  color: #000;
+}
+
+.active {
+  background-color: white;
+  color: #000;
+}
+
+.product-highlight {
+  margin: 25px 0;
+  padding: 24px 28px;
+  border-radius: 18px;
+  background: rgba(102, 161, 243, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
+  color: #f4efff;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.section-title {
+  margin-top: 40px;
+  margin-bottom: 15px;
+  font-size: 32px;
+  color: #f3f1ff;
+}
+
+.feature-cards {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 20px;
+}
+
+.feature-card {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 18px;
+  padding: 24px;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.12);
+}
+
+.feature-card h3 {
+  margin: 0 0 12px;
+  color: #66a1f3;
+}
+
+.feature-card p {
+  margin: 0;
+  color: #e6f3ff;
+}
+
+.kontakt-box {
+  max-width: 760px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 24px;
+  padding: 42px;
+  box-shadow: 0 28px 70px rgba(0, 0, 0, 0.22);
+  text-align: center;
+}
+
+.contact-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 28px;
+}
+
+.contact-table th,
+.contact-table td {
+  padding: 18px 20px;
+}
+
+.contact-table {
+  background: rgba(102, 161, 243, 0.25);
+  color: #ffffff;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.contact-table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.contact-table tr:hover {
+  background: rgba(255, 255, 255, 0.12);
+}
+
+.contact-table td {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: #f7f3ff;
+}
+
+.contact-table a {
+  color: #66a1f3;
+  text-decoration: none;
+}
+
+@media (max-width: 900px) {
+  .feature-cards {
+    grid-template-columns: 1fr;
+  }
+}
+
+.product-container {
+  margin: 40px auto;
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.6;
+  color: #ffffff;
+}
+
+.p-intro {
+  font-size: 22px; /* Mírně menší než tvých 25px pro lepší čitelnost na webu */
+  font-weight: 500;
+  margin-bottom: 30px;
+  color: #ffffff;
+  font-family: "Questrial", sans-serif;
+}
+
+.layers-list {
+  list-style: none;
+  padding: 0;
+}
+
+.layers-list li {
+  margin-bottom: 12px;
+  padding: 15px 20px;
+  border-left: 5px solid #66a1f3; /* Modrý akcent pro každou vrstvu */
+  border-radius: 4px;
+  font-size: 18px;
+  transition: transform 0.2s ease;
+
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+}
+
+.layers-list li:hover {
+  transform: translateX(10px);
+  box-shadow: 0 8px 30px rgba(253, 249, 249, 0.25);
+}
+
+.layers-list strong {
+  color: #66a1f3;
+  display: block; /* Název vrstvy bude na vlastním řádku pro přehlednost */
+  margin-bottom: 5px;
+}
+
+.p-summary {
+  margin-top: 30px;
+  font-size: 18px;
+  font-style: italic;
+  border-top: 1px solid #eee;
+  padding-top: 20px;
+  color: #ffffff;
+}
+
+#logo-svg {
+  opacity: 0;
+  transform: rotate(-90deg) scale(0.95);
+  transform-origin: center;
+}
+
+.draw {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  transition: stroke-dashoffset 1.6s ease;
+}
+
+.dot {
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+#logo-svg.visible {
+  opacity: 1;
+  transform: rotate(0deg) scale(1);
+}
+#logo-svg.visible .draw {
+  stroke-dashoffset: 0;
+}
+#logo-svg.visible .dot {
+  opacity: 1;
+  transition-delay: 1.3s;
+}
+
+.navbar {
+  position: sticky;
+  top: 0;
+  height: 56px;
+  padding: 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1000;
+}
+
+.hamburger {
+  width: 38px;
+  height: 27px;
+  background: none;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  cursor: pointer;
+  position: fixed;
+  right: 20px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 100%;
+  background: #ffffff;
+  border-radius: 2px;
+  transition: 0.3s;
+}
+
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translateY(14.5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-15.5px);
+}
+
+.mobilni-menu {
+  display: flex;
+  position: fixed;
+  right: 10px;
+  top: 48px;
+  padding: 15px 30px 15px 0;
+  transform: translateX(110%);
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  opacity: 0;
+  pointer-events: none;
+
+  transition: transform 0.2s ease-in-out, opacity 0.15s ease-in-out;
+  z-index: 3000;
+}
+.mobilni-menu ul {
+  list-style: none;
+}
+
+.mobilni-menu.open {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.mobile-nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid white;
+  padding: 6px 20px;
+  border-radius: 999px;
+  width: fit-content;
+  display: block;
+  margin: 6px auto;
+  text-align: center;
+  cursor: pointer;
+  font-family: "Questrial", sans-serif;
+  transition:
+    0.3s background-color,
+    0.3s color;
+}
+
+.mobile-nav a:hover {
+  background-color: white;
+  color: #000;
+}
+
+.nav-active {
+  background-color: white;
+  color: #000000 !important;
+}
+
+.pilulka,
+.produkt,
+.team {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 999px;
+  transition:
+    background-color 0.3s,
+    color 0.3s;
+  cursor: pointer;
+  font-family: sans-serif;
+  margin: 5px 20px 5px;
+  transition:
+    0.3s background-color,
+    0.3s color;
+}
+
+.produkt:hover {
+  background-color: white;
+  color: #000;
+}
+
+.pilulka {
+  width: fit-content;
+  display: block;
+  margin: 10px auto;
+  text-align: center;
+  transition:
+    0.3s background-color,
+    0.3s color;
+}
+
+.team:hover {
+  background-color: white;
+  color: #000;
+}
+
+.pilulka:hover {
+  background-color: white;
+  color: #000;
+}
+
+.horni-lista {
+  color: white;
+  padding: 10px 0;
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  margin: 0;
+  font-family: "Questrial", sans-serif;
+  transition:
+    opacity 0.4s ease,
+    transform 0.4s ease,
+    background 0.3s ease,
+    backdrop-filter 0.3s ease;
+  z-index: 100;
+  top: 0;
+  padding: 15px 0;
+  background: transparent;
+}
+
+.horni-lista.nav-scrolled {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(5px);
+  -webkit-backdrop-filter: blur(5px);
+}
+
+#menu,
+#podmenu {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+#menu.visible,
+#podmenu.visible2 {
+  opacity: 1;
+  pointer-events: auto;
+}
+#podmenu {
+  transform: translateY(-100%);
+}
+#podmenu.visible2 {
+  transform: translateY(0);
+}
+
+/* SECTIONS (KONT) */
+.kont,
+.kont3 {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column; /* Aby prvky byly pod sebou */
+  padding: 40px 20px;
+  box-sizing: border-box;
+}
+
+.pozice-nadpisu {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
+}
+/* TYPOGRAFIE */
+.velky-nadpis {
+  font-size: 160px;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  font-family: "Archivo Black", sans-serif;
+  line-height: 1;
+}
+
+.maly-nadpis {
+  font-size: 60px;
+  margin: 10px 0 0 0;
+  color: #ffffff;
+  text-align: center;
+  font-family: "Archivo Black", sans-serif;
+}
+
+.p-text1,
+.p-text2,
+.vlozkatext {
+  color: #ffffff;
+  font-family: "Questrial", sans-serif;
+}
+
+.p-text2 {
+  font-size: 35px;
+  text-align: center;
+  max-width: 900px;
+  margin: 0 auto 30px auto;
+}
+
+.nadpis-strana3 {
+  font-size: 50px;
+  margin: 0 0 30px 0;
+  color: #ffffff;
+  font-family: "Questrial", sans-serif;
+  text-align: center;
+}
+
+.nadpis-strana4 {
+  font-size: 50px;
+  margin: 0 0 30px 0;
+  color: #ffffff;
+  font-family: "Questrial", sans-serif;
+  text-align: center;
+  justify-content: center;
+}
+
+/* KOMPONENTY (Boxíky, ikonky atd.) */
+.svgsipka {
+  transition: transform 0.3s ease-in-out;
+  display: block;
+  width: 70px;
+  height: 70px;
+  margin: 100px auto 0;
+}
+
+.svgsipka:hover {
+  transform: scale(1.05) translate(5px, 5px);
+}
+
+.svghodinky {
+  width: 470px;
+  height: auto;
+}
+
+/* OPRAVENÁ STRUKTURA PRO "ČASTÉ PROBLÉMY" */
+.celastrana {
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.textslide {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto 40px auto;
+  text-align: center;
+}
+
+.radekbox {
+  display: flex;
+  gap: 30px; /* Perfektní mezera mezi boxíky bez nutnosti pevného marginu */
+  margin-top: 30px;
+  justify-content: center; /* Vždy vycentrované */
+}
+
+.problembox {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 400px;
+  padding: 25px;
+  box-sizing: border-box; /* Zajišťuje, že se padding nepřipočítává k šířce */
+  display: flex;
+  flex-direction: column;
+  z-index: 10;
+}
+
+h3 {
+  font-size: 26px;
+  margin: 0 0 15px 0;
+  color: #fdfcdc;
+  font-family: "Questrial", sans-serif;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  padding-bottom: 10px;
+}
+
+.problemtext {
+  margin: 0;
+  color: #ffffff;
+  font-family: "Questrial", sans-serif;
+  font-size: 18px;
+  line-height: 1.5;
+  text-align: left;
+}
+
+.bezecsvg {
+  width: 240px;
+  height: auto;
+  display: block;
+}
+
+.nacrt {
+  width: 100%;
+}
+
+.pcb {
+  width: 100%; /* KLÍČOVÉ */
+  height: 100%; /* KLÍČOVÉ */
+  display: block;
+}
+
+summary {
+  display: inline-block;
+  width: auto;
+  white-space: nowrap; /* Zabrání zalomení textu v tlačítku */
+  color: white;
+  border: 2px solid white;
+  padding: 8px 20px;
+  border-radius: 999px;
+  cursor: pointer;
+  list-style: none;
+  transition:
+    background-color 0.4s,
+    color 0.3s;
+}
+
+summary:hover {
+  background-color: white;
+  color: #000;
+}
+
+/* Skrytý text se rozprostře přirozeně */
+.obsah-text {
+  width: 500px; /* Tady si urči, jak široký má ten textový blok být */
+  max-width: 90vw; /* Aby na mobilu nevyjel z obrazovky */
+}
+
+summary::-webkit-details-marker {
+  display: none;
+}
+details {
+  color: #ffffff;
+  font-family: "Questrial", sans-serif;
+  font-size: 20px;
+  width: auto;
+}
+
+/* VLOŽKA BOX A SVG OBJEKTY */
+.kokot {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  gap: 40px;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.slide5 {
+  display: flex;
+  flex-direction: column;
+}
+
+.vlozkabox {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: 100%;
+  max-width: 600px;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.vlozkabox-obr {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+  width: fit-content;
+  padding: 30px;
+  box-sizing: border-box;
+}
+
+.vlozkabox-obr2 {
+  backdrop-filter: blur(30px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+  border-radius: 15px;
+
+  width: 100%;
+  max-height: fit-content;
+  margin: 0 auto;
+}
+
+#big-svg-object {
+  width: 50%;
+  max-width: 500px;
+  pointer-events: none;
+}
+
+.bar {
+  width: 70%;
+  background-color: rgba(255, 255, 255, 0.4);
+  height: 20px;
+  border-radius: 30px;
+  margin-top: 5%;
+}
+
+.progress {
+  width: 0%;
+  background-color: rgba(207, 36, 36, 0.4);
+  height: 20px;
+  border-radius: 30px;
+}
+
+.progress.animate {
+  animation: progressAnim 2s ease-out forwards;
+}
+
+.progress2 {
+  width: 0%;
+  background-color: rgba(233, 196, 32, 0.4);
+  height: 20px;
+  border-radius: 30px;
+}
+
+.progress2.animate2 {
+  animation: progress2Anim 2s ease-out forwards;
+}
+
+.progress3 {
+  width: 0%;
+  background-color: rgba(106, 233, 32, 0.4);
+  height: 20px;
+  border-radius: 30px;
+}
+
+.progress3.animate3 {
+  animation: progress3Anim 2s ease-out forwards;
+}
+
+.progress4 {
+  width: 0%;
+  background-color: rgba(32, 153, 233, 0.4);
+  height: 20px;
+  border-radius: 30px;
+}
+
+.progress4.animate4 {
+  animation: progress4Anim 2s ease-out forwards;
+}
+
+.zvyrazneni {
+  background: linear-gradient(90deg, #66a1f3, #22c9a6);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.popisek {
+  font-size: medium;
+  opacity: 0.8;
+  color: #8aa1b1;
+  font-family: "Questrial", sans-serif;
+  margin-top: 5px;
+}
+
+@keyframes progressAnim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 70%;
+  }
+}
+
+@keyframes progress2Anim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 80%;
+  }
+}
+
+@keyframes progress3Anim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 95%;
+  }
+}
+
+@keyframes progress4Anim {
+  from {
+    width: 0;
+  }
+  to {
+    width: 7%;
+  }
+}
+
+.ohraniceni {
+  border-top: 2px white solid;
+  opacity: 0.7;
+}
+
+footer {
+  margin-top: 50px;
+  color: white;
+  font-family: "Questrial", sans-serif;
+  height: 15vh;
+  text-align: center;
+  padding: 10px;
+  line-height: 1.5;
+  opacity: 0.7;
+}
+
+@media (max-width: 880px) {
+  .velky-nadpis {
+    font-size: 120px;
+  }
+}
+
+@media (max-width: 400px) {
+  .velky-nadpis {
+    white-space: normal;
+  }
+}
+
+/* ========================================= */
+/* MOBILNÍ VERZE (Sjednoceno pod jedno pravidlo) */
+/* ========================================= */
+@media (max-width: 768px) {
+  .logo {
+    top: 10px;
+    left: 10px;
+    width: 45px;
+  }
+
+  .navbar {
+    display: flex;
+    position: fixed;
+    top: 0;
+  }
+  #menu,
+  #podmenu {
+    display: none !important;
+  }
+
+  .pozice-nadpisu > a {
+    max-width: 100vh;
+    width: 90%;
+    margin: 0 auto;
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding-left: 10px;
+    margin-right: 30px;
+  }
+
+  .velky-nadpis {
+    font-size: 70px;
+    width: 100%;
+  }
+
+  .velky-nadpis span {
+    display: inline; /* Každé slovo na nový řádek */
+  }
+  .maly-nadpis {
+    font-size: 35px;
+  }
+
+  .p-text2 {
+    font-size: 22px;
+    padding: 0 15px;
+    text-align: left;
+  }
+  .nadpis-strana3 {
+    font-size: 40px;
+  }
+
+  .horni-lista {
+    top: 0;
+    padding: 15px 0;
+    background: transparent;
+    backdrop-filter: none;
+    -webkit-backdrop-filter: none;
+  }
+
+  .horni-lista.nav-scrolled {
+    background: rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(5px);
+    -webkit-backdrop-filter: blur(5px);
+    height: 25px;
+  }
+
+  /* TADY JSOU OPRAVY PRO BOXY NA MOBILU */
+  .radekbox {
+    flex-direction: column; /* Boxíky hezky pod sebou */
+    align-items: center;
+  }
+
+  .problembox {
+    width: 90%; /* Zaberou skoro celou šířku mobilu */
+    max-width: none;
+  }
+
+  .bezecsvg {
+    display: none; /* Skryje běžce na mobilu, aby nepřekážel */
+  }
+
+  /* OPRAVY PRO SLIDE 11 (HODINKY) */
+  .slide11 {
+    flex-direction: column;
+  }
+  .svghodinky {
+    width: 80%;
+    max-width: 250px;
+    margin-top: 30px;
+  }
+
+  .vlozkabox-obr {
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(10px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.25);
+    border-radius: 15px;
+    width: fit-content;
+    padding: 15px;
+    box-sizing: border-box;
+  }
+
+  /* OPRAVY PRO "KOKOT" SLIDE S VLOŽKOU */
+  .kokot {
+    flex-direction: column;
+    padding: 20px;
+  }
+  #big-svg-object {
+    width: 100%;
+    height: auto;
+    margin-bottom: 20px;
+  }
+  .vlozkabox {
+    width: 100%;
+    padding: 20px;
+  }
+}
+
+@media (max-width: 768px) {
+  .hamburger {
+    display: none;
+  }
+}
+
+/* 1. Výchozí stav: Skryto na velkých obrazovkách (desktop) */
+.hamburger {
+  /* Nahraď '.hamburger' třídou tvého tlačítka */
+  display: none;
+}
+
+/* 2. Zobrazení pro mobilní zařízení (např. do šířky obrazovky 768px) */
+@media (max-width: 768px) {
+  .hamburger {
+    display: flex; /* Pokud jsi používal flexbox, dej sem 'display: flex;' */
+  }
+}

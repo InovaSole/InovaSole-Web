@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="cs">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>O nás | InovaSole</title>
+
+    <!--  FAVICONY - první svg (preferované), .ico se nelinkuje aby se stránka načetla rychleji, pro starší prohlížeče je ponechána v kořenovém adresáři  -->
+
+    <link rel="icon" type="image/svg+xml" href="/favicon/favicon.svg" />
+    <link rel="icon" type="image/png" href="/favicon/favicon-96x96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon/apple-touch-icon.png" />
+    <meta name="apple-mobile-web-app-title" content="InovaSole" />
+    <link rel="manifest" href="/favicon/site.webmanifest" />
+
+    <link rel="stylesheet" href="css stranky.css" />
+
+    <script src="JAVASCRIPT NOW.js" defer></script>
+    
+  </head>
+  <body id="bg">
+    <header>
+      <nav class="horni-lista">
+        <div id="menu" class="visible">
+          <a href="index.html" class="nav-odkaz-domu">Domů</a>
+          <a href="o-nas.html" class="produkt active">O nás</a>
+          <a href="produkt.html" class="produkt">Produkt</a>
+          <a href="Sole Sens team.html" class="team">Team</a>
+          <a href="kontakt.html" class="produkt">Kontakt</a>
+        </div>
+      </nav>
+      <div style="display: flex; justify-content: flex-end">
+        <header class="navbar">
+          <button class="hamburger" id="hamburger" aria-label="Otevřít navigaci">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+        </header>
+
+        <nav class="mobilni-menu" role="navigation" aria-label="Hlavní navigace">
+
+          <ul class="mobile-nav">
+            <li><a href="index.html">Domů</a></li>
+            <li><a href="o-nas.html" class="nav-active">O nás</a></li>
+            <li><a href="produkt.html">Produkt</a></li>
+            <li><a href="Sole Sens team.html">Team</a></li>
+            <li><a href="kontakt.html">kontakt</a></li>
+          </ul>
+
+        </nav>
+
+      </div>
+    </header>
+
+    <article>
+      <div class="kont">
+        <h1 class="nadpis">O nás</h1>
+        <div class="product-container">
+          <p class="p-intro">
+            SoleSens je tým nadšených vývojářů, designérů a biomechaniků, kteří
+            věří, že každý běžec si zaslouží
+            <span class="zvyrazneni">pohodlnou a bezpečnou podporu</span> při
+            běhu.
+          </p>
+          <p class="p-text2">
+            Naše cesta začala na tréninku, kde jsme viděli, jak špatná technika
+            běhu vede k opakovaným zraněním. Inspirací se stala potřeba chytré
+            vložky, která běžci pomůže pochopit jeho kroky a okamžitě reagovat.
+          </p>
+
+          <h2 class="nadpis-strana4">Naše mise</h2>
+          <p class="p-text2">
+            Chceme nabídnout jednoduché řešení, které dokáže sledovat běžecké
+            návyky, odhalit špatné došlapy a pomoct zlepšit techniku pomocí
+            přehledných dat. Věříme, že lepší běh je dostupný pro každého.
+          </p>
+        </div>
+      </div>
+    </article>
+    <footer>
+      <div class="ohraniceni">
+        <p>
+          <strong>Adresa: </strong> Ostrava, Česká republika <br />
+          <strong>Kontakt: </strong>
+          <a
+            href="mailto:contact@inovasole.com"
+            style="text-decoration: none; color: inherit"
+            >contact@inovasole.com</a
+          >
+          <br />
+        </p>
+        <div style="margin-top: 20px; font-size: 0.9em; opacity: 0.7">
+          <p>
+            ©2026 InovaSole. Všechna práva vyhrazena.
+            <a href="#" style="color: inherit">↑</a>
+          </p>
+        </div>
+      </div>
+    </footer>
+  </body>
+</html>
