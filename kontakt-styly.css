@@ -291,24 +291,46 @@ footer {
 .formular-groups-around-div {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 25px;
+  gap: 30px;
   justify-items: center;
 }
 
 /*   POLE JMÉNO  */
 
-.formular-jmeno {
-  position: relative;
+.formular-jmeno, .formular-email, .formular-predmet {
+  display: flex;
+  flex-direction: column;
   width: 100%;
-  max-width: 220px;
+  justify-items: center;
 }
 
-.formular-jmeno-input {
+.formular-jmeno-pole {
+  position: relative;
+  width: 100%;
+  max-width: 260px;
+  margin: 0 auto;
+}
+
+.formular-email-pole {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.formular-predmet-pole {
+  position: relative;
+  width: 100%;
+  max-width: 330px;
+  margin: 0 auto;
+}
+
+.formular-jmeno-input, .formular-email-input, .formular-predmet-input {
   width: 100%;
   outline: none;
   padding: 10px 30px 10px 10px;
   border: 2px solid rgba(253, 249, 249, 0.25);
-  border-radius: 10px;
+  border-radius: 15px;
   background-color: transparent;
 
   color: #ffffff;
@@ -320,11 +342,11 @@ footer {
 
   transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 }
-.formular-jmeno-label {
+.formular-jmeno-label, .formular-email-label, .formular-predmet-label {
   position: absolute;
   left: 8px;
   top: 50%;
-  transform: translateY(-50%);
+  transform: translateY(-45%);
   color: #ffffff;
   font-size: 1rem;
   pointer-events: none;
@@ -336,50 +358,220 @@ footer {
   transition: top 0.3s ease-in-out, transform 0.3s ease-in-out, font-size 0.3s ease-in-out, color 0.3s ease-in-out;
 }
 
-.formular-jmeno-input:focus ~ .formular-jmeno-label,
-.formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label {
+.formular-jmeno-validace, .formular-email-validace, .formular-predmet-validace {
+  display: inline;
+  color: var(--zelena);
+  position: absolute;
+  top: 50%;
+  right: 14px;
+  transform: translateY(-50%);
+}
+.formular-jmeno-validace .ikona-valid, .formular-email-validace .ikona-valid, .formular-predmet-validace .ikona-valid {
+  display: none;
+}
+.formular-jmeno-validace .ikona-invalid, .formular-email-validace .ikona-invalid, .formular-predmet-validace .ikona-invalid {
+  display: none;
+}
+
+.formular-jmeno-hlaska, .formular-email-hlaska, .formular-predmet-hlaska {
+  color: var(--cervena);
+  font-size: 0.8rem;
+  margin: 3px 0 0;
+  min-height: 0.8rem;
+}
+
+.formular-jmeno-input:focus ~ .formular-jmeno-label, .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label,
+.formular-email-input:focus ~ .formular-email-label, .formular-email-input:not(:placeholder-shown) ~ .formular-email-label,
+.formular-predmet-input:focus ~.formular-predmet-label, .formular-predmet-input:not(:placeholder-shown) ~ .formular-predmet-label {
   top: 0;
   font-size: 0.7rem;
   color: rgba(255, 255, 255, 0.8);
   transform: translateY(-50%);
 }
 
-.formular-jmeno-input:focus {
+.formular-jmeno-input:focus, .formular-email-input:focus, .formular-predmet-input:focus {
   border-color: #66a1f3;
 }
 
-.formular-jmeno.valid .formular-jmeno-input:not(:placeholder-shown) {
+.formular-jmeno.valid .formular-jmeno-input:not(:placeholder-shown), 
+.formular-email.valid .formular-email-input:not(:placeholder-shown),
+.formular-predmet.valid .formular-predmet-input:not(:placeholder-shown) {
   border-color: var(--zelena);
 }
-.formular-jmeno.valid  .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label{
+.formular-jmeno.valid .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label,
+.formular-email.valid .formular-email-input:not(:placeholder-shown) ~ .formular-email-label,
+.formular-predmet.valid .formular-predmet-input:not(:placeholder-shown) ~ .formular-predmet-label {
   color: var(--zelena);
 }
-.formular-jmeno.valid .formular-jmeno-input:not(:placeholder-shown):focus {
+.formular-jmeno.valid .formular-jmeno-input:not(:placeholder-shown):focus,
+.formular-email.valid .formular-email-input:not(:placeholder-shown):focus,
+.formular-predmet.valid .formular-predmet-input:not(:placeholder-shown):focus {
   box-shadow: 0 3px 12px rgba(74, 222, 128, 0.2);
 }
 
-.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown) {
+.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown),
+.formular-email.invalid .formular-email-input:not(:placeholder-shown),
+.formular-predmet.invalid .formular-predmet-input:not(:placeholder-shown) {
   border-color: var(--cervena);
 }
-.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label {
+.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label,
+.formular-email.invalid .formular-email-input:not(:placeholder-shown) ~ .formular-email-label,
+.formular-predmet.invalid .formular-predmet-input:not(:placeholder-shown) ~ .formular-predmet-label {
   color: var(--cervena);
 }
-.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown):focus {
+.formular-jmeno.invalid .formular-jmeno-input:not(:placeholder-shown):focus,
+.formular-email.invalid .formular-email-input:not(:placeholder-shown):focus,
+.formular-predmet.invalid .formular-predmet-input:not(:placeholder-shown):focus {
   box-shadow: 0 3px 12px rgba(255, 107, 107, 0.25);
 }
-.formular-jmeno-input:-webkit-autofill {
+.formular-jmeno-input:-webkit-autofill,
+.formular-email-input:-webkit-autofill {
   border-color: var(--zelena);
-  box-shadow: inset 0 0 0 100px rgba(74, 222, 128, 0.2);
+  box-shadow: inset 0 0 0 1000px transparent;
   -webkit-text-fill-color: #ffffff;
   transition: background-color 9999s ease-in-out 0s;
 }
-.formular-jmeno-input:-webkit-autofill:focus {
+.formular-jmeno-input:-webkit-autofill:focus,
+.formular-email-input:-webkit-autofill:focus {
   border-color: var(--zelena);
-  box-shadow: 0 3px 12px rgba(74, 222, 128, 0.2), inset 0 0 0 100px transparent;
+  box-shadow: 0 3px 12px rgba(74, 222, 128, 0.2), inset 0 0 0 1000px transparent;
   -webkit-text-fill-color: #ffffff;
   transition: background-color 9999s ease-in-out 0s;
 }
-.formular-jmeno-input:-webkit-autofill ~ .formular-jmeno-label, 
-.formular-jmeno-input:-webkit-autofill:focus ~ .formular-jmeno-label {
+.formular-jmeno-input:-webkit-autofill ~ .formular-jmeno-label, .formular-jmeno-input:-webkit-autofill:focus ~ .formular-jmeno-label,
+.formular-email-input:-webkit-autofill ~ .formular-email-label, .formular-email-input:-webkit-autofill:focus ~ .formular-email-label {
   color: var(--zelena);
+}
+
+.formular-zprava {
+  position: relative;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.formular-zprava-textarea {
+  outline: none;
+  padding: 10px 30px 10px 10px;
+  border: 2px solid rgba(253, 249, 249, 0.25);
+  border-radius: 15px;
+  background-color: transparent;
+  width: 100%;
+  resize: vertical;
+  height: 5rem;
+  min-height: 2.1rem;
+  max-height: 25rem;
+
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 600;
+
+  box-sizing: border-box;
+  box-shadow: 0 0 0 rgba(74, 222, 128, 0.2);
+
+  transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+.formular-zprava-label {
+  position: absolute;
+
+  left: 8px;
+  top: 20px;
+  transform: translateY(-45%);
+  color: #ffffff;
+  font-size: 1rem;
+  pointer-events: none;
+  border-radius: 5px;
+
+  padding: 2px 4px;
+  background-color: #3c4b64;
+
+  transition: top 0.3s ease-in-out, transform 0.3s ease-in-out, font-size 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+.formular-zprava-label span {
+  display: inline;
+  opacity: 1;
+
+  /* transition: "vlastnost" "trvání" "časování" "ZPOŽDĚNÍ" */
+  /* Při návratu počká 0.3s a až pak plynule naběhne */
+  transition: 
+    opacity 0.2s ease 0.3s, 
+    display 0.2s allow-discrete 0.3s;
+}
+
+/* Skrytý stav (textarea má focus nebo text) */
+.formular-zprava-textarea:focus ~ .formular-zprava-label span,
+.formular-zprava-textarea:not(:placeholder-shown) ~ .formular-zprava-label span {
+  display: none;
+  opacity: 0;
+
+  /* Při schovávání zmizí okamžitě bez zpoždění */
+  transition: 
+    opacity 0.15s ease 0s, 
+    display 0.15s allow-discrete 0s;
+}
+
+/* Výchozí bod pro animaci z display: none zpět do display: inline */
+@starting-style {
+  .formular-zprava-label span {
+    opacity: 0;
+  }
+}
+
+.formular-zprava-hlaska {
+  display: flex;
+  position: absolute;
+  top: -14px;
+  right: 15px;
+  color: var(--cervena);
+  font-size: 0.8rem;
+}
+
+
+.formular-zprava-textarea:focus ~ .formular-zprava-label,
+.formular-zprava-textarea:not(:placeholder-shown) ~ .formular-zprava-label {
+  top: 0;
+  font-size: 0.7rem;
+  color: rgba(255, 255, 255, 0.8);
+  transform: translateY(-50%);
+}
+
+.formular-zprava-textarea:focus {
+  border-color: #66a1f3;
+}
+
+.formular-zprava-validace {
+  display: inline;
+  color: var(--zelena);
+  position: absolute;
+  top: 18px;
+  right: 10px;
+  transform: translateY(-50%);
+}
+
+.formular-zprava-validace .ikona-valid {
+  display: none;
+}
+.formular-zprava-validace .ikona-invalid {
+  display: none;
+}
+
+.formular-zprava.valid .formular-zprava-textarea:not(:placeholder-shown) {
+  border-color: var(--zelena);
+}
+
+.formular-zprava.valid .formular-zprava-textarea:not(:placeholder-shown) ~ .formular-zprava-label {
+  color: var(--zelena);
+}
+.formular-zprava.valid .formular-zprava-textarea:not(:placeholder-shown):focus {
+  box-shadow: 0 3px 12px rgba(74, 222, 128, 0.2);
+}
+
+.formular-zprava.invalid .formular-zprava-textarea:not(:placeholder-shown) {
+  border-color: var(--cervena);
+}
+.formular-zprava.invalid .formular-zprava-textarea:not(:placeholder-shown) ~ .formular-zprava-label {
+  color: var(--cervena);
+}
+.formular-zprava.invalid .formular-zprava-textarea:not(:placeholder-shown):focus {
+  box-shadow: 0 3px 12px rgba(255, 107, 107, 0.25);
 }
