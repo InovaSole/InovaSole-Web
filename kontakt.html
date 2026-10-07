@@ -16,6 +16,7 @@
     <link rel="stylesheet" href="kontakt-styly.css" />
 
     <script src="JAVASCRIPT NOW.js" defer></script>
+    <script src="kontakt-script.js" defer></script>
 
   </head>
   <body class="kontakt-bg">
@@ -56,6 +57,8 @@
 
     <main class="formular-main">
 
+      <p class="desktop-podnadpis">Zaujal vás náš produkt?<br>Napište nám a společně vymyslíme, co dál.</p>
+
       <section class="formular-section">
 
       <h1 class="formular-nadpis">Kontaktní formulář</h1>
@@ -63,9 +66,11 @@
 
         <form class="formular-form" action="https://formsubmit.co/contact@inovasole.com" method="POST">
 
+          <h2 class="desktop-nadpis">Kontaktní formulář</h2>
+
           <div class="formular-groups-around-div">
 
-            <div class="formular-jmeno valid">
+            <div class="formular-jmeno">
               <div class="formular-jmeno-pole">
                 <input class="formular-jmeno-input" type="text" id="formular-jmeno" name="jmeno" autocomplete="name" placeholder=" ">
                 <label class="formular-jmeno-label" for="formular-jmeno">Jméno a Příjmení</label>
@@ -85,7 +90,7 @@
               <small class="formular-jmeno-hlaska"></small>
             </div>
 
-            <div class="formular-email valid">
+            <div class="formular-email">
               <div class="formular-email-pole">
                 <input class="formular-email-input" type="email" id="formular-email" name="email" autocomplete="email" placeholder=" ">
                 <label class="formular-email-label" for="formular-email">Email</label>
@@ -125,8 +130,8 @@
               <small class="formular-predmet-hlaska"></small>
             </div>
 
-            <div class="formular-zprava valid">
-              <small class="formular-zprava-hlaska">iuwr hawebf eh fajhda</small>
+            <div class="formular-zprava">
+              <small class="formular-zprava-hlaska"></small>
                 <textarea class="formular-zprava-textarea" name="message" id="formular-zprava" placeholder=" "></textarea>
                 <label class="formular-zprava-label" for="formular-zprava">Vaše zpráva<span>...</span></label>
                 <span class="formular-zprava-validace">
@@ -145,8 +150,17 @@
             </div>
 
             <div class="formular-button">
-              <button class="formular-submit" type="submit">Odeslat formulář</button>
+              <button class="formular-submit" type="submit">
+                <span class="span-svg-vlastovka">
+                  <svg xmlns="http://www.w3.org/2000/svg" class="vlastovka-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send preview-icon">
+                  <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/>
+                  <path d="m21.854 2.147-10.94 10.939"/>
+                  </svg>
+                </span>
+                Odeslat formulář</button>
             </div>
+
+            <p class="odeslani-hlaska" role="alert"></p>
 
           </div>
 
@@ -154,7 +168,42 @@
           <input type="hidden" name="_template" value="box">
           <input type="text" name="_honey" style="display: none;">
 
+          
         </form>
+
+        <h2 class="podekovani-nadpis">Formulář byl odeslán!</h2>
+        <p class="podekovani-text">Děkujeme za vaši zprávu. V nejbližší době se vám pokusíme ozvat prostřednictvím zadaného emailu.</p>
+
+
+      </section>
+
+      <section class="kontakty-section">
+
+        <div class="kontakty-window">
+          <h1>Kontakty</h1>
+          <p>Neváhejte nás také kontaktovat prostřednitcvím těchto možností:</p>
+
+          <div class="kontakty-emaily">
+            <h2>Emaily:</h2>
+            <hr style="border: none; border-top: 2px solid rgba(255, 255, 255, 0.4); width: 85px; margin: 0 1px 30px; z-index: 2000;">
+            <h3 class="hlavni-kontakt">Hlavní kontakt</h3>
+            <a class="contact-inovasole-email" href="mailto:contact@inovasole.com"><span class="odrazka">▷ </span>contact@inovasole.com</a>
+
+            <h3 class="osobni-kontakt">Viktor Gajda</h3>
+            <a class="email-osobni" href="mailto:viktor.gajda@inovasole.com"><span class="odrazka">▷ </span>viktor.gajda@inovasole.com</a>
+
+            <h3 class="osobni-kontakt">Matouš Byrtus</h3>
+            <a class="email-osobni" href="mailto:matous.byrtus@inovasole.com"><span class="odrazka">▷ </span>matous.byrtus@inovasole.com</a>
+          </div>
+
+          <div class="socialni-site">
+            <h2>Sociální sítě:</h2>
+            <hr style="border: none; border-top: 2px solid rgba(255, 255, 255, 0.4); width: 148px; margin: 0 1px 30px; z-index: 2000;">
+            <h3>Instagram</h3>
+            <a href="https://www.instagram.com/inovasole" target="_blank"><span class="odrazka">▷ </span>@inovasole</a>
+          </div>
+
+        </div>
 
       </section>
 
