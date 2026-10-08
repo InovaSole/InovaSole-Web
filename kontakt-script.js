@@ -462,7 +462,9 @@ formular.addEventListener("submit", (event) => {
 
     .then(data => {
 
-        if (data.success === true) {
+        console.log("Odpověď ze serveru:", data);
+
+        if (data.success === "true" || data.success === true) {
             zobrazDekovani();
         }
         else {
