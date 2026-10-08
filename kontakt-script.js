@@ -1,4 +1,6 @@
 const formular = document.querySelector(".formular-form");
+const desktop_nadpis = document.querySelector(".desktop-nadpis");
+const podekovani = document.querySelector(".podekovani-window");
 
 const jmeno_div = document.querySelector(".formular-jmeno");
 const jmeno_input = document.querySelector(".formular-jmeno-input");
@@ -13,6 +15,7 @@ const email_hlaska = document.querySelector(".formular-email-hlaska");
 const predmet_div = document.querySelector(".formular-predmet");
 const predmet_input = document.querySelector(".formular-predmet-input");
 const predmet_hlaska = document.querySelector(".formular-predmet-hlaska");
+const predmet_finalni = document.getElementById("subject");
 
 
 const zprava_div = document.querySelector(".formular-zprava");
@@ -23,10 +26,13 @@ const zprava_hlaska = document.querySelector(".formular-zprava-hlaska");
 const odeslani_hlaska = document.querySelector(".odeslani-hlaska");
 
 
-// kontrola jména
+// KONTROLA POLÍ:
+// -------------
 
 let validujPriInputu_jmeno = false;
-let ValidujPriInputu_email = false;
+let validujPriInputu_email = false;
+let validujPriInputu_predmet = false;
+let validujPriInputu_zprava = false;
 
 function validujJmeno() {
 
@@ -94,7 +100,7 @@ function validujJmeno() {
 
 }
 
-function ValidujEmail() {
+function validujEmail() {
 
     email_hlaska.textContent = "";
     email_div.classList.remove("valid", "invalid");
@@ -111,7 +117,7 @@ function ValidujEmail() {
         return false;
     }
 
-    const pocet_zavinacu = (email.match(/@/g) || []);
+    const pocet_zavinacu = (email.match(/@/g) || []).length;
     if (pocet_zavinacu === 0) {
         email_div.classList.add("invalid");
         email_hlaska.textContent = "Email musí obsahovat zavináč";
@@ -156,7 +162,7 @@ function ValidujEmail() {
         return false;
     }
 
-    const regex_mistni_cast = /^(?!.*\.\.)[a-zA-Z._+-]+$/
+    const regex_mistni_cast = /^(?!.*\.\.)[a-zA-Z0-9._+-]+$/
 
     if (!regex_mistni_cast.test(prvni_hodnota)) {
         email_div.classList.add("invalid");
@@ -192,6 +198,60 @@ function ValidujEmail() {
     email_div.classList.add("valid");
     return true;
 
+}
+
+function validujPredmet() {
+
+    predmet_div.classList.remove("valid", "invalid");
+    predmet_hlaska.textContent = "";
+
+    const predmet = predmet_input.value.trim();
+
+    if (predmet === "") {
+        return false;
+    }
+
+    if (predmet.length < 3) {
+        predmet_div.classList.add("invalid");
+        predmet_hlaska.textContent = "Předmět je příliš krátký";
+        return false;
+    }
+
+    if (predmet.length > 120) {
+        predmet_div.classList.add("invalid");
+        predmet_hlaska.textContent = "Předmět je příliš dlouhý";
+        return false;
+    }
+
+    predmet_div.classList.add("valid");
+    return true;
+}
+
+function validujZpravu() {
+
+    zprava_div.classList.remove("valid", "invalid");
+    zprava_hlaska.textContent = "";
+
+    const zprava = zprava_textarea.value.trim();
+
+    if (zprava === "") {
+        return false;
+    }
+
+    if (zprava.length < 15) {
+        zprava_div.classList.add("invalid");
+        zprava_hlaska.textContent = "Zpráva je příliš krátká";
+        return false;
+    }
+
+    if (zprava.length > 5000) {
+        zprava_div.classList.add("invalid");
+        zprava_hlaska.textContent = "Zpráva je příliš dlouhá";
+        return false;
+    }
+
+    zprava_div.classList.add("valid");
+    return true;
 }
 
 jmeno_input.addEventListener("input", () => {
@@ -233,8 +293,8 @@ jmeno_input.addEventListener("change", () => {
 
 email_input.addEventListener("input", () => {
 
-    if (ValidujPriInputu_email === true) {
-        ValidujEmail();
+    if (validujPriInputu_email === true) {
+        validujEmail();
     }
 
 });
@@ -243,19 +303,177 @@ email_input.addEventListener("blur", () => {
 
     const email_trimmed = email_input.value.trim();
 
-    if (email_trimmed == "") {
-        ValidujPriInputu_email = false;
+    if (email_trimmed === "") {
+        validujPriInputu_email = false;
     }
     else {
-        ValidujPriInputu_email = true;
+        validujPriInputu_email = true;
     }
 
-    ValidujEmail();
+    validujEmail();
 
 });
 
 email_input.addEventListener("change", () => {
 
-    ValidujEmail();
-    
+    validujEmail();
+
+});
+
+predmet_input.addEventListener("input", () => {
+
+    if (validujPriInputu_predmet === true) {
+        validujPredmet();
+    }
+
+});
+
+predmet_input.addEventListener("blur", () => {
+
+    const predmet_trimmed = predmet_input.value.trim();
+
+    if (predmet_trimmed === "") {
+        validujPriInputu_predmet = false;
+    }
+    else {
+        validujPriInputu_predmet = true;
+    }
+
+    validujPredmet();
+
+});
+
+predmet_input.addEventListener("change", () => {
+
+    validujPredmet();
+
+});
+
+zprava_textarea.addEventListener("input", () => {
+
+    if (validujPriInputu_zprava === true) {
+        validujZpravu();
+    }
+
+});
+
+zprava_textarea.addEventListener("blur", () => {
+
+    const zprava_trimmed = zprava_textarea.value.trim();
+
+    if (zprava_trimmed === "") {
+        validujPriInputu_zprava = false;
+    }
+    else {
+        validujPriInputu_zprava = true;
+    }
+
+    validujZpravu();
+
+});
+
+zprava_textarea.addEventListener("change", () => {
+
+    validujZpravu();
+
+});
+
+
+
+// ODESLÁNÍ FORMULÁŘE:
+// ------------------
+
+function zobrazDekovani() {
+    formular.style.display = "none";
+    desktop_nadpis.style.display = "none";
+    podekovani.style.display = "flex";
+}
+
+formular.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    let zastavOdeslani = false;
+
+    odeslani_hlaska.textContent = "";
+    podekovani.style.display = "none";
+
+    const jmenoValidni = validujJmeno();
+    const emailValidni = validujEmail();
+    const predmetValidni = validujPredmet();
+    const zpravaValidni = validujZpravu();
+
+    if (jmenoValidni === false || emailValidni === false || predmetValidni === false || zpravaValidni === false) {
+        zastavOdeslani = true;
+    }
+
+    const jmeno = jmeno_input.value.trim();
+    const email = email_input.value.trim();
+    const predmet = predmet_input.value.trim();
+    const zprava = zprava_textarea.value.trim();
+
+    if (jmeno === "") {
+        jmeno_div.classList.add("invalid");
+        jmeno_hlaska.textContent = "Vyplňte prosím toto pole";
+        zastavOdeslani = true;
+    }
+
+    if (email === "") {
+        email_div.classList.add("invalid");
+        email_hlaska.textContent = "Vyplňte prosím toto pole";
+        zastavOdeslani = true;
+    }
+
+    if (predmet === "") {
+        predmet_div.classList.add("invalid");
+        predmet_hlaska.textContent = "Vyplňte prosím toto pole";
+        zastavOdeslani = true;
+    }
+
+    if (zprava === "") {
+        zprava_div.classList.add("invalid");
+        zprava_hlaska.textContent = "Vyplňte prosím toto pole";
+        zastavOdeslani = true;
+    }
+
+    if (zastavOdeslani === true) {
+        validujPriInputu_jmeno = true;
+        validujPriInputu_email = true;
+        validujPriInputu_predmet = true;
+        validujPriInputu_zprava = true;
+        return;
+    }
+
+    predmet_finalni.value = `Web - formulář: ${predmet}`;
+
+    const formData = new FormData(formular);
+
+    fetch("https://formsubmit.co/ajax/contact@inovasole.com", {
+
+        method: "POST",
+
+        headers: {
+            "Accept": "application/json"
+        },
+        body: formData
+    })
+
+    .then(response => response.json())
+
+    .then(data => {
+
+        if (data.success === true) {
+            zobrazDekovani();
+        }
+        else {
+            odeslani_hlaska.textContent = "Došlo k chybě na straně serveru. Zkuste to prosím později";
+        }
+    })
+
+    .catch(error => {
+
+        odeslani_hlaska.textContent = "Formulář se nepodařilo odeslat. Zkontrolujte připojení k internetu a zkuste to znovu.";
+
+    });
+
 });

@@ -294,7 +294,7 @@ footer {
   justify-items: center;
 }
 
-/*   POLE JMÉNO  */
+/*   POLE FORMULÁŘE  */
 
 .formular-jmeno, .formular-email, .formular-predmet {
   display: flex;
@@ -390,6 +390,7 @@ footer {
   font-size: 0.8rem;
   margin: 3px 0 0;
   min-height: 0.8rem;
+  text-align: center;
 }
 
 .formular-jmeno-input:focus ~ .formular-jmeno-label, .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label,
@@ -772,7 +773,7 @@ footer {
 
   .desktop-podnadpis {
     display: block;
-    font-size: 1.1rem;
+    font-size: 1.4rem;
     color: #ffffff;
     width: 85vw;
     max-width: 600px;
@@ -815,3 +816,37 @@ footer {
     margin: 0;
   }
 }
+
+.podekovani-window {
+  width: 80%;
+  max-width: 800px;
+  margin: 0 auto;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.12);
+  padding: 20px 20px 25px;
+  color: white;
+  box-sizing: border-box;
+  flex-direction: column;
+  justify-items: center;
+}
+
+@media (min-width: 900px) {
+  .podekovani-window {
+    width: 90%;
+  }
+}
+
+.podekovani-nadpis {
+    font-size: 2rem;
+    text-align: center;
+
+  }
+
+.podekovani-text {
+    font-size: 1.2rem;
+    text-align: center;
+    line-height: 1.4;
+  }
