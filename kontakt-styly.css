@@ -391,11 +391,14 @@ footer {
   margin: 3px 0 0;
   min-height: 0.8rem;
   text-align: center;
+
+  -webkit-user-select: none; /* Pro Safari a starší verze Chrome/Edge */
+  user-select: none;
 }
 
 @media (min-width: 900px) {
   .formular-jmeno-hlaska, .formular-email-hlaska, .formular-predmet-hlaska {
-    text-align: right;
+    text-align: left;
   }
 }
 
@@ -543,6 +546,9 @@ footer {
   right: 15px;
   color: var(--cervena);
   font-size: 0.8rem;
+
+  -webkit-user-select: none; /* Pro Safari a starší verze Chrome/Edge */
+  user-select: none;
 }
 
 
