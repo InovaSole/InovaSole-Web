@@ -24,7 +24,6 @@ if (hamburgerBtn && mobileMenuContainer) {
     e.stopPropagation(); // Zabrání, aby klik "propadl" do dokumentu
     hamburgerBtn.classList.toggle("active");
     mobileMenuContainer.classList.toggle("open");
-    console.log("Menu přepnuto"); // Pro kontrolu v konzoli (F12)
   });
 }
 

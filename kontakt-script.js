@@ -35,13 +35,9 @@ let validujPriInputu_predmet = false;
 let validujPriInputu_zprava = false;
 
 function validujJmeno() {
-
-    console.log("vstup do validační funkce");
     
     jmeno_hlaska.textContent = "";
     jmeno_div.classList.remove("valid", "invalid");
-
-    console.log("funkce - po resetování hodnot");
 
     const jmeno = jmeno_input.value.trim();
 
@@ -62,8 +58,6 @@ function validujJmeno() {
         return false;
     }
 
-    console.log("funkce -po regexu");
-
     if (jmeno.includes("  ")) {
         jmeno_div.classList.add("invalid");
         jmeno_hlaska.textContent = "Ve jméně je 2 a více mezer za sebou";
@@ -82,8 +76,6 @@ function validujJmeno() {
         return false;
     }
 
-    console.log("funkce - po kontrole počtu slov");
-
     const ma_kratke_slovo = slova.some((slovo) => {
         return slovo.length < 2;
     });
@@ -92,8 +84,6 @@ function validujJmeno() {
         jmeno_hlaska.textContent = "Slovo musí mít alespoň 2 znaky";
         return false;
     }
-
-    console.log("funkce valid");
 
     jmeno_div.classList.add("valid");
     return true;
@@ -256,19 +246,13 @@ function validujZpravu() {
 
 jmeno_input.addEventListener("input", () => {
     
-    console.log("input listener");
-    
     if (validujPriInputu_jmeno === true) {
         validujJmeno();
     }
 
-    
-
 });
 
 jmeno_input.addEventListener("blur", () => {
-
-    console.log("blur listener");
 
     const jmeno_trimmed = jmeno_input.value.trim();
 
@@ -284,8 +268,6 @@ jmeno_input.addEventListener("blur", () => {
 });
 
 jmeno_input.addEventListener("change", () => {
-
-    console.log("change listener");
 
     validujJmeno();
 
