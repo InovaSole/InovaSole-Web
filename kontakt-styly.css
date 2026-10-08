@@ -601,10 +601,10 @@ footer {
   box-shadow: 0 3px 12px rgba(255, 107, 107, 0.25);
 }
 
-
 .formular-button {
   margin: 30px auto 0;
 }
+
 .formular-submit {
   font-size: 1.25rem;
   font-weight: 600;
@@ -614,27 +614,53 @@ footer {
   border: 2px solid #ffffff;
   border-radius: 50px;
 
-  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+  transition: transform 0.2s ease-in-out, background-color 0.2s ease-in-out, color 0.2s ease-in-out, opacity 0.2s ease-in-out;
 }
-.formular-submit:hover {
+
+/* Hover funguje jen v případě, že tlačítko NENÍ zablokované */
+.formular-submit:hover:not(:disabled) {
   cursor: pointer;
   transform: scale(1.01);
   background-color: #ffffff;
   color: black;
 }
 
-.vlastovka-svg {
+.vlastovka-svg,
+.loader-svg {
   stroke: #ffffff;
   transition: stroke 0.2s ease-in-out;
 }
 
-.span-svg-vlastovka {
+.span-svg-vlastovka,
+.span-svg-loader {
   display: inline-block;
   transform: translateY(16%);
 }
 
-.formular-submit:hover .vlastovka-svg {
+.formular-submit:hover:not(:disabled) .vlastovka-svg {
   stroke: #000000;
+}
+
+/* --- NOVÉ STYLY PRO PROCES ODESÍLÁNÍ --- */
+
+/* Vzhled zablokovaného tlačítka */
+.formular-submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+/* Animace otáčení spinneru */
+@keyframes roztoceni {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.loader-svg {
+  animation: roztoceni 1s linear infinite;
 }
 
 .kontakty-section {

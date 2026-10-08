@@ -22,7 +22,9 @@ const zprava_div = document.querySelector(".formular-zprava");
 const zprava_textarea = document.querySelector(".formular-zprava-textarea");
 const zprava_hlaska = document.querySelector(".formular-zprava-hlaska");
 
-
+const odeslat_btn = document.querySelector(".formular-submit");
+const span_vlastovka = document.querySelector(".span-svg-vlastovka");
+const span_loader = document.querySelector(".span-svg-loader");
 const odeslani_hlaska = document.querySelector(".odeslani-hlaska");
 
 
@@ -244,6 +246,27 @@ function validujZpravu() {
     return true;
 }
 
+function zapniNacitani() {
+    odeslat_btn.disabled = true;
+    span_vlastovka.style.display = "none";
+    span_loader.style.display = "inline-block";
+}
+
+function vypniNacitani() {
+    odeslat_btn.disabled = false;
+    span_vlastovka.style.display = "inline-block";
+    span_loader.style.display = "none";
+}
+
+function zobrazDekovani() {
+    formular.style.display = "none";
+    desktop_nadpis.style.display = "none";
+    podekovani.style.display = "flex";
+}
+
+//    LISTENERY:
+//    ---------
+
 jmeno_input.addEventListener("input", () => {
     
     if (validujPriInputu_jmeno === true) {
@@ -365,12 +388,6 @@ zprava_textarea.addEventListener("change", () => {
 // ODESLÁNÍ FORMULÁŘE:
 // ------------------
 
-function zobrazDekovani() {
-    formular.style.display = "none";
-    desktop_nadpis.style.display = "none";
-    podekovani.style.display = "flex";
-}
-
 formular.addEventListener("submit", (event) => {
 
     event.preventDefault();
@@ -426,6 +443,8 @@ formular.addEventListener("submit", (event) => {
         return;
     }
 
+    zapniNacitani();
+
     predmet_finalni.value = `Web - formulář: ${predmet}`;
 
     const formData = new FormData(formular);
@@ -451,12 +470,14 @@ formular.addEventListener("submit", (event) => {
         }
         else {
             odeslani_hlaska.textContent = "Došlo k chybě na straně serveru. Zkuste to prosím později";
+            vypniNacitani();
         }
     })
 
     .catch(error => {
 
         odeslani_hlaska.textContent = "Formulář se nepodařilo odeslat. Zkontrolujte připojení k internetu a zkuste to znovu.";
+        vypniNacitani();
 
     });
 

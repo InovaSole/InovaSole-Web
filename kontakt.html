@@ -72,7 +72,7 @@
 
             <div class="formular-jmeno">
               <div class="formular-jmeno-pole">
-                <input class="formular-jmeno-input" type="text" id="formular-jmeno" name="jmeno" autocomplete="name" placeholder=" ">
+                <input class="formular-jmeno-input" type="text" id="formular-jmeno" name="jméno" autocomplete="name" placeholder=" ">
                 <label class="formular-jmeno-label" for="formular-jmeno">Jméno a Příjmení</label>
                 <span class="formular-jmeno-validace">
 
@@ -112,7 +112,7 @@
 
             <div class="formular-predmet">
               <div class="formular-predmet-pole">
-                <input class="formular-predmet-input" type="text" id="formular-predmet" placeholder=" ">
+                <input class="formular-predmet-input" type="text" name="přemět" id="formular-predmet" placeholder=" ">
                 <label class="formular-predmet-label" for="formular-predmet">Předmět</label>
                 <span class="formular-predmet-validace">
 
@@ -132,7 +132,7 @@
 
             <div class="formular-zprava">
               <small class="formular-zprava-hlaska"></small>
-                <textarea class="formular-zprava-textarea" name="message" id="formular-zprava" placeholder=" "></textarea>
+                <textarea class="formular-zprava-textarea" name="zpráva" id="formular-zprava" placeholder=" "></textarea>
                 <label class="formular-zprava-label" for="formular-zprava">Vaše zpráva<span>...</span></label>
                 <span class="formular-zprava-validace">
 
@@ -151,13 +151,24 @@
 
             <div class="formular-button">
               <button class="formular-submit" type="submit">
-                <span class="span-svg-vlastovka">
-                  <svg xmlns="http://www.w3.org/2000/svg" class="vlastovka-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-send preview-icon">
+    
+              <!-- ikona vlaštovky -->
+              <span class="span-svg-vlastovka">
+                <svg xmlns="http://www.w3.org/2000/svg" class="vlastovka-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                   <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/>
                   <path d="m21.854 2.147-10.94 10.939"/>
-                  </svg>
-                </span>
-                Odeslat formulář</button>
+                </svg>
+              </span>
+
+              <!-- ikona loaderu (defaultně skrytá) -->
+              <span class="span-svg-loader" style="display: none;">
+                <svg xmlns="http://www.w3.org/2000/svg" class="loader-svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M21 12a9 9 0 1 1-6.21-8.58"/>
+                </svg>
+              </span>
+
+                Odeslat formulář
+              </button>
             </div>
 
             <p class="odeslani-hlaska" role="alert"></p>
