@@ -449,7 +449,7 @@ formular.addEventListener("submit", (event) => {
 
     const formData = new FormData(formular);
 
-    fetch("https://formsubmit.co/ajax/contact@inovasole.com", {
+    fetch("https://formsubmit.co/ajax/469afa659f72bcad3911eb48faa24648", {
 
         method: "POST",
 
