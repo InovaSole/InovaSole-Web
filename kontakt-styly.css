@@ -393,6 +393,12 @@ footer {
   text-align: center;
 }
 
+@media (min-width: 900px) {
+  .formular-jmeno-hlaska, .formular-email-hlaska, .formular-predmet-hlaska {
+    text-align: right;
+  }
+}
+
 .formular-jmeno-input:focus ~ .formular-jmeno-label, .formular-jmeno-input:not(:placeholder-shown) ~ .formular-jmeno-label,
 .formular-email-input:focus ~ .formular-email-label, .formular-email-input:not(:placeholder-shown) ~ .formular-email-label,
 .formular-predmet-input:focus ~.formular-predmet-label, .formular-predmet-input:not(:placeholder-shown) ~ .formular-predmet-label {
